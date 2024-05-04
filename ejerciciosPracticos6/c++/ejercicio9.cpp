@@ -3,10 +3,12 @@ luego realice la multiplicación de matrices. Asegúrate de que las
 dimensiones de las matrices sean compatibles para la multiplicación y
 muestra la matriz resultante. */
 #include <iostream>
+
 #define MAX 3
+
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
     int matriz1[MAX][MAX];
     int matriz2[MAX][MAX];
@@ -34,20 +36,26 @@ int main(int argc, char const *argv[])
     }
     cout << endl;
 
+    //multiplicacion de matrices
     for (int i = 0; i < MAX; i++)
     {
         for (int j = 0; j < MAX; j++)
         {
-            matrizResultante[i][j] = matriz1[i][j] * matriz2[i][j];
+            matrizResultante[i][j] = 0;
+            for (int k = 0; k < MAX; k++)
+            {
+                matrizResultante[i][j] += matriz1[i][k] * matriz2[k][j];
+            }
         }
     }
 
-    cout << "Matriz " << endl;
+    
+    cout << "Matriz Resultante" << endl;
     for (int i = 0; i < MAX; i++)
     {
         for (int j = 0; j < MAX; j++)
         {
-            cout << matrizResultante[i][j];
+            cout << matrizResultante[i][j] << " ";
         }
         cout << endl;
     }
